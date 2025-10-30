@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-content: center; /*O align items posiciona os itens que estão no plano secundário*/
+            height: 50vh;
+      
+            font-size: 4rem;
+            
+        }
+        #foguete{
+            font-size: 100px;
+            animation: subir 5s ease-in-out infinite;
+        }
+
+        @keyframes subir{
+            0%{
+                transform: translateY(100vh) rotate(200deg);
+            }
+            to{
+                transform: translateY(0vh);
+            }
+        }
+        /*
+        .box{
+          flex-grow: 0;
+          border-radius: 50%;
+          border: 20px solid #FAAABB;
+          background-color: #AAAAAA;  
+          width: 100px;
+          height: 100px;
+          flex-shrink: 0;
+          animation: rotacao 1s cubic-bezier(.38,.92,1,.23) infinite;
+        }
+        /*O 'order' é utilizado os mesmos conceitos do topografia (gráficos topográficos)
+        #item1{order: 2;}
+        #item2{order: 2;}
+        #item3{order: 1;}
+        #item4{order: 1;}
+
+        @keyframes rotacao {
+            from{
+                transform: /*translate(0, 0)*/ /*rotate(0deg);
+            }
+            to{
+                transform: /*translate(100%, 100%)*/ /*rotate(360deg);
+            }
+        }   */
+
+        .box{border-top-color: green;
+        border-right-color: blue;
+        border-bottom-color: red;
+        border-left-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="box" id="foguete">🚀</div>
+   <!-- <div class="box" id="item2">2</div>
+    <div class="box" id="item3">3</div>
+    <div class="box" id="item4">4</div>-->
+
+</body>
+</html>
