@@ -1,0 +1,47 @@
+body {
+    background-color: rgba(37, 191, 230, 0.205);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h1{
+    color: rgb(26, 26, 92);
+}
+h2{
+    color: rgb(170, 20, 57);
+}
+table, tr, td, th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 7px;
+}
+input{
+    border-radius: 10%;
+    margin: 5px;
+}
+#botao{
+    border-radius: 45%;
+    padding: 7px;
+}
+#botao:hover{
+    background-color: rgb(69, 185, 65);
+    margin: 3px;
+}
+#estado:hover{
+    background-color: rgba(16, 240, 0, 0.192);
+    margin: 3px;
+}
+a{
+    text-decoration: none; /* tira o sublinhado */
+    color: rgb(11, 87, 4);
+    
+}
+a:hover{
+    color: rgb(12, 214, 214);
+}
+nav a{
+    padding: 5px;
+    margin: 0 9px;
+    color: rgb(12, 11, 11);
+}
+img {
+    border-radius: 30%;
+}
