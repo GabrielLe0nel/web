@@ -35,7 +35,8 @@ Aprender e aplicar os principais conceitos de desenvolvimento front-end:
 
 **Gabriel Leonel**
 
-📧 [gabriel.leonel.pro@gmail.com](gabriel.leonel.pro@gmail.com)  
+📧 Email: gabriel.leonel.pro@gmail.com
+
 🌍 [GitHub: GabrielLe0nel](https://github.com/GabrielLe0nel)
 
 ---

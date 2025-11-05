@@ -3,9 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Regra CSS</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 40px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        p, li {
+            font-size: 1rem;
+        }
+
+        pre {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            font-size: 0.95rem;
+        }
+
+        code {
+            color: #bd1b23;
+        }
+    </style>
 </head>
 <body>
-    <p>Explicação regra CSS</p>
+    <h2>Explicação regra CSS</h2>
+    <p>
+    Uma regra CSS serve para dizer ao navegador como um elemento HTML deve aparecer.  <br>
+    Ou seja, ela define o estilo (como cor, tamanho, espaçamento etc.) de algo que está no seu site.
+    </p>
+
+    <h2>Como é formada uma regra CSS?</h2>
+    <p>Uma regra CSS tem 3 partes principais:</p>
+        <ol>
+            <li>Seletor → diz qual elemento você quer modificar.</li>
+            <li>Propriedade → diz o que você quer mudar (cor, tamanho, fonte, etc.).</li>
+            <li>Valor → diz como você quer que fique (vermelho, 20px, negrito...).</li>
+        </ol>
+        <br>
+        <h2>Exemplo</h2>
+        <pre><code>
+        p {
+            color: blue;
+        }
+    </code></pre>
+    <p>explicação:
+        <ul>
+            <li>p → é o seletor, indica que queremos estilizar todos os parágrafos &lt;p> do HTML.</li>
+            <li>color → é a propriedade, ou seja, o que vamos mudar.</li>
+            <li>blue → é o valor, ou seja, a cor que queremos aplicar, que no caso é a propriedade color do CSS.</li>
+        </ul>
+    
+
+
+</p>
+
+    <h2></h2>
 </body>
 </html>
