@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regra CSS</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 40px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        p, li {
+            font-size: 1rem;
+        }
+
+        pre:hover {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            font-size: 0.95rem;
+        }
+        li::after{
+            background-color: #2c3e50;
+        }
+
+        code {
+            color: #bd1b23;
+        }
+        #subir{
+            animation: sobe 3s ease-in-out ;
+        }
+        @keyframes sobe {
+            0%{
+                transform: translateY(85vh) translateX(-35vh) rotate(20deg);
+            }
+            to{
+                transform: translateY(0vh) translateX(0vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Explicação regra CSS</h2>
+    <p>
+    Uma regra CSS serve para dizer ao navegador como um elemento HTML deve aparecer.  <br>
+    Ou seja, ela define o estilo (como cor, tamanho, espaçamento etc.) de algo que está no seu site.
+    </p>
+
+    <p>Uma regra CSS tem 3 partes principais:</p>
+        <ol>
+            <li>Seletor → diz qual elemento você quer modificar.</li>
+            <li>Propriedade → diz o que você quer mudar (cor, tamanho, fonte, etc.).</li>
+            <li>Valor → diz como você quer que fique (vermelho, 20px, negrito...).</li>
+        </ol>
+        <br>
+        <h2>Exemplo</h2>
+        <pre><code>
+        h2 {
+            color: #2c3e50;
+        }
+    </code></pre>
+    <p>explicação:
+        <ul>
+            <li id="subir">p → é o seletor, indica que queremos estilizar todos os parágrafos &lt;p> do HTML.</li>
+            <li>color → é a propriedade, ou seja, o que vamos mudar.</li>
+            <li>blue → é o valor, ou seja, a cor que queremos aplicar, que no caso é a propriedade color do CSS.</li>
+        </ul>
+
+</body>
+</html>
+
+
+
+<!--    questão 2 - 
+(1.0) Estrutura e sintaxe do CSS (1,0 ponto)
+Defina o que é uma regra CSS, nomeando e exemplificando suas partes: seletor, propriedades e valores.
+Inclua no exemplo:
+Uma pseudoclasse (:hover, :first-child, etc.);
+Um pseudoelemento (::before, ::after, etc.);
+Uma animação simples (usando @keyframes), aplicada a algum elemento, por exemplo, um botão que muda de cor ao passar o mouse.
+Critérios: 
+Definição correta (0,3)
+Exemplo funcional de regra com pseudoclasse e pseudoelemento (0,4)
+Uso correto de @keyframes e animation (0,3)-->
