@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandeiras</title>
+
+    <style>
+        .container{
+            display: grid;
+            height: 100vh;
+            width: 100vw;
+        }
+
+            .container{
+                grid-template-areas: 
+                "AzulFrança . VermelhoFrança"
+                "Alemanha Alemanha Alemanha"
+                ". VermelhoJapao ."
+                ;
+            }
+            
+
+
+        /*.container{
+            display: grid;
+            grid-template-areas: 
+            "header header header header"
+            "main main . sidebar"
+            "footer footer footer footer"
+            ;
+        }*/
+
+
+        #azul-f{
+            grid-area: AzulFrança;
+            background-color: blue;
+            
+        }
+        #vermelha-f{
+            grid-area: VermelhoFrança;
+            order: 1;
+            background-color: red;
+           
+        }
+
+        .alemanha{
+            grid-area: Alemanha;
+            display: inline-block;
+            position: absolute;
+        }
+
+        #preto-a{
+            background-color: black;
+            position: relative;
+        }
+        #vermelho-a{
+            height: 53%;
+            top: 30%;
+            background-color: red;
+            position: relative;
+        }
+        #amarelo-a{
+            height: 38%;
+            top: 62%;
+            background-color: orange;
+            position: relative;
+        }
+
+
+        #vermelha-j{
+            grid-area: VermelhoJapao;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box franca" id="azul-f" id="vermelha-f"></div>
+        <div class="box franca" id="vermelha-f"></div>
+
+
+
+        <div class="box alemanha" id="preto-a"></div>
+        <div class="box alemanha" id="vermelho-a"></div>
+        <div class="box alemanha" id="amarelo-a"></div>
+
+        <div class="box japao" id="vermelha-j"></div>
+
+        <div class="quebra-linha"></div>
+    </div>
+
+</body>
+</html>
+<!--
+(2,0) Reproduza as seguintes bandeiras apenas com HTML e CSS (sem imagens), utilizando divs e Flexbox ou Grid:
+França → 3 faixas verticais iguais (azul, branco, vermelho)
+Alemanha → 3 faixas horizontais iguais (preto, vermelho, amarelo)
+Japão → fundo branco e círculo vermelho centralizado
+Critérios:
+Estrutura correta com HTML semântico (0,5)
+Proporções e cores adequadas (1,0)
+Uso de Flexbox ou Grid (0,5)
+-->
