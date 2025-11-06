@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colocar CSS</title>
+    <style>
+        body{
+            line-height: 1.3;
+            background-color: rgba(255, 228, 196, 0.637);
+        }
+        p, ol, mark{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+            color: rgba(0, 0, 0, 0.753);
+        }
+    </style>
+</head>
+<body>
+    <h1>Como colocar css no html?</h1>
+    <p>São 4 formas de colocar estilização CSS no html</p>
+    <ol>
+    <li> Externo - por meio da tag &lt;link rel="stylesheet" href="style.css"> isso dentro do elemento &lt;head></li>
+        <li>incorporado - por meio da tag &lt;style&gt; no cabeçalho do nosso documento HTML</li>
+        <li>Inline - por meio do atributo style em qualquer tag HTML. Exemplo:  &lt;p <mark>style="color: red;"</mark>>lorem &lt;/p&gt;</li>
+        <li>** por meio da árvore DOM via JavaScript (JS)</li>
+    </ol>
+</body>
+</html>

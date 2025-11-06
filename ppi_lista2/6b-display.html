@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>positions - 2</title>
+  <style>
+
+
+    .box{
+      position: relative;
+      display: inline-block;
+      width: 24vw;
+      height: 200px;
+      font-size: 16px;
+      
+      
+    }
+    .box span{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      
+    }
+
+    #box1 { 
+        background:purple; 
+    } 
+    #box2 { 
+        background: green; 
+    } 
+    #box3 {  
+        background: red; 
+    } 
+    #box4 {  
+        background: yellow;
+        } 
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="box1" class="box"><span>box1</span></div>
+    <div id="box2" class="box"><span>box2</span></div>
+    <div id="box3" class="box"><span>box3</span></div>
+    <div id="box4" class="box"><span>box4</span></div>
+  </div>
+
+</body>
+</html>

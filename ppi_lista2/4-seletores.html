@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>   
+   <title>Exemplo especificidade de seletores</title>
+   <style>
+      /*regra 1*/ li{color:red;}
+      /*regra 2*/ .churras{color:green;}
+      /*regra 3*/ .fruta{color:gray}
+      /*regra 4*/ li+li.churras{color: black;}
+      /*regra 5*/ .churras[draggable="true"]{color: magenta;}
+      /*regra 6*/ #lip1,#lip2,#lip3{color:blue}
+      /*regra 7*/ #lip3.fruta{color:orange}
+      /*regra 8*/ ol>li.churras#lip5{color:purple}
+
+      p, #p-2{ color: black;
+        line-height: 1.2;
+        font-size: 17px;
+      }
+      i{
+        color: rgb(182, 0, 0);
+      }
+
+   </style>
+</head>
+<body>   
+   <ol>
+   <!--item 1--> <li id="lip0">Abacaxi</li>
+   <!--item 2--> <li           class="fruta">Melão</li>
+   <!--item 3--> <li id="lip2" class="fruta">Pera</li>
+   <!--item 4--> <li id="lip3" class="fruta">Uva</li>
+   <!--item 5--> <li id="lip4" class="fruta">Maçã</li>
+   <!--item 6--> <li           class="churras">Carne</li>
+   <!--item 7--> <li           class="churras">Linguiça</li>
+   <!--item 8--> <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+   </ol>   
+   <br> <hr>
+   <h2>Explicação da especificidade dos seletores</h2>
+    <ol>
+    <li id="p-2">Item 1 (Abacaxi): este item ficou vermelho pois ele foi referenciado a <i>regra 1</i>  do li, não seria vermelho se tivesse alguma referencia ao id "lip0"</li>
+    <li id="p-2">Item 2 (Melão): este item ficou cinza pois ele foi referenciado a <i>regra 3</i>  da class, não seria cinza se não tivesse alguma referencia a class "fruta"</li>
+    <li id="p-2">Item 3 (Pera): este item ficou azul pois ele foi referenciado a <i>regra 6</i> do id, poderia ser vermelho por causda do 'li' ou cinza da class 'fruta'. Mas o maior peso é o do id</li>
+    <li id="p-2">Item 4 (Uva): este item ficou laranja pois ele foi referenciado a <i>regra 7</i> da class + id. Ou seja foi somado 2 pesos para que ficasse laranja, poderia ter ficado so no li, ou no id, ou na class, que tem diferentes pesos, porém somado o id "lip3" + classe "fruta" prevaleceu essa regra</li>
+    <li id="p-2">Item 5 (Maça): este item ficou cinza pois ele foi referenciado a <i>regra 3</i> da classe 'fruta'. Pois a classe teve maior peso que a id (que esta sem referencia no css) e o li (referenciado, porém tem menor peso)</li>
+    <li id="p-2">Item 6 (Carne): este item ficou preto pois ele foi referenciado a <i>regra 4</i> da classe 'churras' + li. Teve maior peso que a li sozinha (vermelho), maior peso que a cor verde (pois, essa regra nao tem o peso a mais do li), não referenciada a cor magenta (pois não tem propriedade 'draggable') e por fim, não é aplicado a regra 8 (cor purple), pois não se enquadra nas especificidades da regra  </li>
+    <li id="p-2">Item 7 (Linguiça): este item ficou preto pois ele foi referenciado a <i>regra 4</i> da classe 'churras' + li. Pois a classe em conjunto com o li teve maior peso que as demais regras, por conta que em algumas regras são muito especificas (então, não se encaixa) e em outras tem maior peso, como exemplo, maior peso que a regra 1 que é só o peso da li sozinha.</li>
+    <li id="p-2">Item 8 (Pão de alho): este item ficou 'magenta' pois ele foi referenciado a <i>regra 5</i> da classe 'churras' + propriedade draggable. Os 2 em conjunto tem maior valor que os demais, por conta da especificidade e não se encaixa em outras com maior peso como a regra 8, pois não se enquadra na regra. A id "lip7" não há nenhuma referencia no CSS e não se aplica o possível peso dela também</li>
+    </ol>
+    <p>2 regras não foram aplicadas a regra 2 e a regra 8. A regra 2 pois outras regras tem maior peso, como que somados com li ou id's e a regra 8 é muito especifica, não se enquadrando em nenhum item</p>
+</body>
+</html>
