@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é JavaScript?</title>
+</head>
+<body>
+
+    <h1 id="h1">O que é JavaScript?</h1>
+
+    <p id="p">
+        <ol type="a" id="lista">
+            <li id="motivo">A motivação para a criação do JavaScript.</li> 
+            <ul id="motivo-resposta"><li>O JavaScript foi criado no contexto da popularização da web, onde as páginas eram utilizadas CSS e HTML, então eram estáticas e não tinha interatividade. Portanto, o JS surgiu para dar dinamicidade para a web. A web precisava de uma linguagem leve, executada no navegador, que permitisse ações básicas sem recarregar a página — validação de formulários, animações simples, interação com o usuário etc.</li></ul>
+            <br>
+            <li id="diferenca">A diferença entre execução no navegador e no servidor.</li> 
+            <ul id="diferenca-resposta"><li>No navegador, o JavaScript é executado no cliente, dentro do browser, manipulando a interface, o DOM e interagindo com o usuário.
+            No servidor, o JavaScript é executado no back-end (como no Node.js), processando lógica do sistema, acessando banco de dados e respondendo requisições antes de enviar dados ao cliente.</li></ul>
+            <br>
+            <li id="sandbox">O conceito de sandbox no navegador.</li> 
+            <ul id="sandbox-resposta"><li>Sandbox no navegador é um ambiente isolado onde o JavaScript roda com permissões limitadas.
+            Ele impede que o código da página acesse diretamente o sistema do usuário ou recursos sensíveis, garantindo segurança e evitando que scripts maliciosos causem danos.
+            </li></ul>
+            <br>
+            <li id="objetos">Objetos globais em Js, document, console e alert();
+            <ol id="objetos-respostas"> <li>document - Objeto - Representa a página carregada. Permite acessar e modificar elementos HTML.</li>
+        <li>console - Objeto - Usado para registrar mensagens e informações no console do navegador.</li>
+        <li>alert() - Função - Exibe uma caixa de diálogo com uma mensagem.</li></ol>
+        <br>
+        A hora atual é: <span id="horaAtual"></span>
+</p>
+
+<script>
+    console.log("O que é JS?");
+    alert("Olá visitante!");
+
+    const agora = new Date();
+    const hora = agora.toLocaleTimeString('pt-BR');
+    document.getElementById('horaAtual').innerHTML = hora;
+</script>
+    
+</body>
+</html>

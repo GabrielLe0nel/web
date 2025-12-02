@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tipos e operações em JS</h1>
+
+    <button id="botao" onclick="exec()">Executar codigo JS</button>
+
+    <h2>Tipos das Variáveis</h2>
+
+    <p id="jstexto"></p>
+    <p id="jsnum"></p>
+    <p id="jsbooleano"></p>
+    <p id="jsindef"></p>
+    <p id="jsnull"></p>
+    <p id="jsobj"></p>
+    <p id="jsvetor"></p>
+
+    <h2>Operações e Explicações</h2>
+
+    <p id="op1"></p>
+    <p id="op2"></p>
+    <p id="op3"></p>
+
+    <script>
+        function exec() {
+            let texto = "Oi";
+            let numero = 2;
+            let booleano = true;
+            let indefinido; 
+            let nulo = null;
+            let objeto = { nome: "Joao" };
+            let array = [1, 2, 3];
+
+            document.getElementById("jstexto").innerText = `Variavel tipo string: ${typeof texto}`;
+            document.getElementById("jsnum").innerText = `Variavel tipo number: ${typeof numero}`;
+            document.getElementById("jsbooleano").innerText = `Variavel tipo boolean: ${typeof booleano}` ;
+            document.getElementById("jsindef").innerText = `Variavel tipo undefined: ${typeof indefinido}`;
+            document.getElementById("jsnull").innerText =  `Variavel tipo null: ${typeof nulo} (JS trata null como 'object')`;
+            document.getElementById("jsobj").innerText = `Variavel tipo object: ${typeof objeto}`;
+            document.getElementById("jsvetor").innerText = `Variavel tipo array: ${typeof array} (arrays também são objetos)`;
+
+            let opA = texto + numero;         
+            let opB = booleano * numero;      
+            let opC = texto * numero;         
+
+            console.log("String + Number =", opA);
+            console.log("Boolean * Number =", opB);
+            console.log("String * Number =", opC);
+
+            document.getElementById("op1").innerText =
+                `String + Number = ${opA} → Quando um número é somado a uma string, gera concatenação.`;
+
+            document.getElementById("op2").innerText =
+                `Boolean * Number = ${opB} → true vira 1 e false vira 0, então pode participar de operações matemáticas.`;
+
+            document.getElementById("op3").innerText =
+                `String * Number = ${opC} → Multiplicação não funciona com strings, resultando em NaN (Not a Number).`;
+        }
+    </script>
+
+</body>
+</html>

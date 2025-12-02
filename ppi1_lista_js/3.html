@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de IMC</h1>
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome">
+
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" step="0.1" placeholder="Ex: 70.5">
+
+        <label for="altura">Altura (m):</label>
+        <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75">
+
+        <button onclick="calcularIMC()">Calcular IMC</button>
+        
+        <hr>
+
+        <h2>Resultado</h2>
+        <p class="resultado" id="resultadoIMC"></p>
+        <p class="resultado" id="classificacao"></p>
+
+        <img id="imgPerfil" alt="perfil saúde">
+    </div>
+
+    <script>
+        function calcularIMC() {
+            const nome = document.getElementById("nome").value.trim();
+            const peso0 = document.getElementById("peso").value;
+            const altura0 = document.getElementById("altura").value;
+
+            const peso = parseFloat(peso0);
+            const altura = parseFloat(altura0);
+
+            const resultadoIMC = document.getElementById("resultadoIMC");
+            const classif = document.getElementById("classificacao");
+            const imgPerfil = document.getElementById("imgPerfil");
+
+            resultadoIMC.innerText = "";
+            classif.innerText = "";
+            imgPerfil.style.display = 'none';
+            imgPerfil.src = '';
+
+            if (!nome || isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                resultadoIMC.innerText = "Por favor, preencha o nome, peso e altura com valores válidos (> 0).";
+                return; 
+            }
+            
+
+            const imc = peso / (altura * altura);
+            const imc_real = imc.toFixed(2);
+            
+            resultadoIMC.innerText = `Olá, ${nome}. Seu IMC é: ${imc_real}`;
+            
+            let classificacao = "";
+            let caminho_final = "";
+
+            // 4. classificacaoção (if / else if)
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+            } else if (imc < 24.9) {
+                classificacao = "Peso normal";
+            } else if (imc < 29.9) {
+                classificacao = "Sobrepeso";
+            } else if (imc < 34.9) {
+                classificacao = "Obesidade grau 1";
+            } else if (imc < 39.9) {
+                classificacao = "Obesidade grau 2";
+            } else { 
+                classificacao = "Obesidade grau 3 (Mórbida)";
+            }
+            
+            classif.innerText = `classificação: ${classificacao}`;
+            
+            const imcArredondado = Math.floor(imc);
+            
+            switch (true) {
+                case imcArredondado < 19:
+                    caminho_final = "magro.png";
+                    break;
+                case imcArredondado >= 19 && imcArredondado <= 24:
+                    caminho_final = "normal.png";
+                    break;
+                case imcArredondado >= 25 && imcArredondado <= 29:
+                    caminho_final = "sobrepeso.png";
+                    break;
+                case imcArredondado >= 30 && imcArredondado <= 34:
+                    caminho_final = "obeso1.png";
+                    break;
+                case imcArredondado >= 35 && imcArredondado <= 39:
+                    caminho_final = "obeso2.png";
+                    break;
+                case imcArredondado >= 40:
+                    caminho_final = "obeso3.png"; 
+                    break;
+                default:
+                    caminho_final = "default.png";
+                    break;
+            }
+
+            imgPerfil.src = caminho_final;
+            imgPerfil.style.display = 'block';
+            
+        }
+    </script>
+</body>
+</html>
