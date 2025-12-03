@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h2>Verificador de palindromo</h2> <br>
+        <input type="text" value="" id="text" placeholder="Digite o texto">
+        <button id="button">Validar</button>
+        <p id="result"></p>
+    
+
+
+<script>
+    const button = document.querySelector('#button');
+    const resultText = document.querySelector('#result');
+
+    function invertText(text) {
+    let padrao = text.toLowerCase();
+    padrao = padrao.replace(/[^a-z]/g, ''); // /[^a-z]/g é um regex, a regra entre o // significa que seleciona todos os caracteres que não sejam letras minúsculas de a a z e o g substitui não só primeiro mas todos os casos e depois do regex, o '' substitui cada caractere encontrado por uma string vazia, ent, removendo
+    console.log("Texto normalizado:", padrao);
+
+    const Invertido = padrao.split('').reverse().join('');
+    console.log("Texto invertido:", Invertido);
+    if (padrao === Invertido) {
+        return true;
+    } else {
+        return false;
+    }
+    }
+
+    button.addEventListener('click', () => {
+    const textValue = document.querySelector('#text').value;
+    console.log("Texto digitado:", textValue);
+    const result  = invertText(textValue);
+
+    if (result) {
+        resultText.innerHTML = `O texto '${textValue}' é um palíndromo`;
+    } else {
+        resultText.innerHTML = `O texto '${textValue}' não é um palíndromo`;
+    }
+});
+
+</script>
+<br>
+<a href="./index.html">Voltar à página da lista de Js</a>
+</body>
+</html>

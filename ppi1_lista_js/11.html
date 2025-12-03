@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exc 11 - localStorage</title>
+</head>
+<body>
+    <input type="text" id="nameInput" placeholder="Digite seu nome"> 
+    <button id="saveButton">Salvar</button> 
+    <p id="greeting"></p>
+
+<script>
+    const input = document.getElementById("nameInput");
+    const btn = document.getElementById("saveButton");
+    const saudacao = document.getElementById("greeting");
+
+    btn.addEventListener("click", () => {
+        const nome = input.value;
+        localStorage.setItem("nomeSalvo", nome);  
+        saudacao.textContent = `Olá, ${nome}!`;
+    });
+
+    const nome_recuperado = localStorage.getItem("nomeSalvo");
+    if (nome_recuperado) {
+        saudacao.textContent = `Olá novamente, ${nome_recuperado}!`;
+    }
+</script>
+<br><br>
+<a href="./index.html">Voltar à página da lista de Js</a>
+</body>
+</html>

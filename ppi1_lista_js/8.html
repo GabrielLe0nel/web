@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 180px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(0, 0, 0);
+            border: 1px solid black;
+            float: left;
+        }
+  
+    </style>
+</head>
+<body>
+    <div class="box" id="b-1">caixa1</div>
+    <div class="box" id="b-2">caixa2</div>
+    <div class="box" id="b-3">caixa3</div>
+    <div class="box" id="b-4">caixa4</div>
+    <div class="box" id="b-5">caixa2</div>
+<script>
+    const boxes = document.querySelectorAll(".box");
+
+    function gerarCor() {
+        return "#" + Math.floor(Math.random() * 16777215)
+                      .toString(16)
+                      .toUpperCase();
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.code === "Space") {
+            e.preventDefault();
+            boxes.forEach(box => {
+                let cor = gerarCor();
+                box.style.backgroundColor = cor;
+                box.textContent = cor;
+            });
+        }
+    });
+</script>
+
+<a href="./index.html">Voltar à página da lista de Js</a>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sorteio numeros</title>
+
+</head>
+<body>
+    <a href="./index.html">Voltar à página da lista de Js</a>
+    <br><br>
+<h1>Sorteio de Números</h1>
+
+<label>Mínimo: <input type="number" id="min" value="1"></label>
+<label>Máximo: <input type="number" id="max" value="100"></label>
+<br><br>
+
+<button onclick="sorteio()">Sortear</button>
+
+<p id="resultado"></p>
+
+<h3>Números Sorteados:</h3>
+<ul id="numeros"></ul>
+
+<script>
+    let arrayObj = [];
+
+    function sorteio() {
+        const min = Number(document.getElementById('min').value);
+        const max = Number(document.getElementById('max').value);
+
+        const numero = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        document.getElementById("resultado").innerText = "Número sorteado: " + numero;
+
+        let item = arrayObj.find(obj => obj.numero === numero);
+
+        if (item) {
+            item.qtd++; 
+        } else {
+            arrayObj.push({ numero: numero, qtd: 1 });
+        }
+
+        atualizarLista();
+    }
+
+    function atualizarLista() {
+        const ul = document.getElementById("numeros");
+        ul.innerHTML = ""; 
+
+        arrayObj.forEach(obj => {
+            const li = document.createElement("li");
+            li.innerText = obj.numero + " — sorteado " + obj.qtd + " vez(es)";
+            ul.appendChild(li); //o appendChild coloca um elemento dentro do outro
+        });
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numero primo</title>
+</head>
+<body>
+    
+<label>Início: <input type="number" id="inicio"></label><br>
+<label>Fim: <input type="number" id="fim"></label><br>
+
+<button onclick="verificarPrimos()">Verificar</button>
+
+<div id="resultadoPrimos"></div>
+
+<script>
+    function ehPrimo(n) {
+        if (n < 2) {
+        return false;
+            }
+        for (let i = 2; i < n; i++) {
+            if (n % i === 0) {
+                return false; 
+            }
+        }
+        return true;
+    }
+
+    function verificarPrimos() {
+        const inicio = Number(document.getElementById("inicio").value);
+        const fim = Number(document.getElementById("fim").value);
+
+        let primos = [];
+
+        for (let num = inicio; num <= fim; num++) {
+            if (ehPrimo(num)) {
+                primos.push(num);
+            }
+        }
+
+        const resultadoDiv = document.getElementById("resultadoPrimos");
+
+        if (primos.length > 0) {
+            resultadoDiv.innerText = "Primos encontrados: " + primos.join(", "); //transforma array em uma string e separa com virgula. exp: [2,3,5] → "2, 3, 5" 
+        } else {
+            resultadoDiv.innerText = "Nenhum número primo encontrado no intervalo.";
+        }
+    }
+</script>
+<br><br>
+<a href="./index.html">Voltar à página da lista de Js</a>
+</body>
+</html>
