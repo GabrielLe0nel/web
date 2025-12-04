@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bloco de notas</title>
+</head>
+<body>
+  <h1>Bloco de Notas</h1>
+
+  <div>
+    <button id="novaBtnNota">+ Nova nota</button>
+    <ul id="listaNota"></ul>
+  </div>
+
+  <hr>
+
+  <!-- Área de edição / visualização -->
+  <div>
+    <input id="tituloNOta" placeholder="Título" />
+    <br>
+    <textarea id="contdNota" rows="8" placeholder="Escreva sua nota aqui..."></textarea>
+    <br>
+    <button id="saveBtn">Salvar</button>
+    <button id="btnExcluir">Excluir</button>
+  </div>
+
+<script>
+  const armazem = "notas";
+
+  const btnNova = document.getElementById("novaBtnNota");
+  const listaEl = document.getElementById("listaNota");
+  const inputTitulo = document.getElementById("tituloNOta");
+  const textoConteudo = document.getElementById("contdNota");
+  const btnSalvar = document.getElementById("saveBtn");
+  const btnExcluir = document.getElementById("btnExcluir");
+
+  let notas = [];         
+  let notaAtualId = null; 
+
+  function carregarNotas() {
+    const raw = localStorage.getItem(armazem);
+
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          notas = parsed;
+        } else {
+          notas = [];
+        }
+      } catch (e) {
+        notas = [];
+      }
+    } else {
+      notas = [];
+    }
+  }
+
+  function salvarNotas() {
+    localStorage.setItem(armazem, JSON.stringify(notas));
+  }
+
+  function renderizarLista() {
+    listaEl.innerHTML = ""; 
+
+    notas.forEach(function(nota) {
+      const li = document.createElement("li");
+      if (nota.titulo && nota.titulo.trim().length > 0) {
+        li.textContent = nota.titulo;
+      } else {
+        li.textContent = "(Sem título)";
+      }
+      li.style.cursor = "pointer";
+      li.addEventListener("click", function() {
+        abrirNota(nota.id);
+      });
+      listaEl.appendChild(li);
+    });
+  }
+
+  function abrirNota(id) {
+    var nota = notas.find(function(n) { return n.id === id; });
+    if (!nota) {
+      return;
+    }
+    notaAtualId = id;
+    inputTitulo.value = nota.titulo;
+    textoConteudo.value = nota.conteudo;
+  }
+
+
+  function novaNota() {
+    notaAtualId = null; 
+    inputTitulo.value = "";
+    textoConteudo.value = "";
+    inputTitulo.focus();
+  }
+
+  function salvarNota() {
+    var titulo = inputTitulo.value.trim();
+    var conteudo = textoConteudo.value;
+
+    if (notaAtualId === null) {
+      var nova = { id: Date.now(), titulo: titulo, conteudo: conteudo };
+      notas.push(nova);
+      notaAtualId = nova.id;
+    } else {
+      var nota = notas.find(function(n) { return n.id === notaAtualId; });
+      if (nota) {
+        nota.titulo = titulo;
+        nota.conteudo = conteudo;
+      }
+    }
+
+    salvarNotas();
+    renderizarLista();
+    alert("Nota salva.");
+  }
+
+  function excluirNotaAtual() {
+    if (notaAtualId === null) {
+      alert("Nenhuma nota selecionada para excluir.");
+      return;
+    }
+
+    var confirmar = confirm("Tem certeza que deseja excluir esta nota?");
+    if (!confirmar) return;
+
+    var novas = [];
+    for (var i = 0; i < notas.length; i++) {
+      if (notas[i].id !== notaAtualId) {
+        novas.push(notas[i]);
+      }
+    }
+    notas = novas;
+
+    salvarNotas();
+    renderizarLista();
+    novaNota(); 
+    alert("Nota excluída.");
+  }
+
+  function iniciar() {
+    carregarNotas();
+    renderizarLista();
+    if (notas.length > 0) {
+      abrirNota(notas[0].id);
+    }
+  }
+
+  btnNova.addEventListener("click", novaNota);
+  btnSalvar.addEventListener("click", salvarNota);
+  btnExcluir.addEventListener("click", excluirNotaAtual);
+  iniciar();
+</script>
+
+
+</body>
+</html>
